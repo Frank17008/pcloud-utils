@@ -7,10 +7,10 @@ import { terser } from "rollup-plugin-terser"
 import json from "rollup-plugin-json"
 
 export default {
-    input: "./index.ts",
+    input: "./src/index.ts",
     output: [
         {
-            name: "pcloud-utils",
+            name: "PUtils",
             file: "dist/index.umd.js",
             format: "umd",
         },
