@@ -1,10 +1,12 @@
 /**
  * 创建a标签下载
- * @param {string} url 下载地址
- * @param {string} title 下载标题
- * @param {string} target 窗口位置
+ * @param options - 参数对象
+ * @param options.url - 下载地址
+ * @param options.title - 下载标题
+ * @param options.target - 窗口位置
  */
-export function tagADownload({ url, title = "", target = "_blank" }: { url: string; title?: string; target?: "_blank" | "" }) {
+export function tagADownload(options: { url: string; title: string; target?: string }) {
+    const { url = "", title = "", target = "_blank" } = options
     const tagA = document.createElement("a")
     tagA.setAttribute("href", url)
     tagA.setAttribute("download", title)
@@ -34,9 +36,15 @@ enum FileType {
     mp4 = "video/mp4",
 }
 
-// 下载文件
 type FILETYPE = keyof typeof FileType
-export const downloadBlobFile = (res: any, name: string, type?: FILETYPE) => {
+
+/**
+ * 下载文件流
+ * @param res - 文件流
+ * @param name - 文件名称
+ * @param type - 文件类型
+ */
+export const downloadBlobFile = (res: Blob, name: string, type?: FILETYPE) => {
     const blob = type ? new Blob([res], { type: FileType[type] }) : new Blob([res])
     if ("download" in document.createElement("a")) {
         const tagA = document.createElement("a")
@@ -50,8 +58,11 @@ export const downloadBlobFile = (res: any, name: string, type?: FILETYPE) => {
     }
 }
 
-// 预览pdf
-export const previewPdf = (res: any) => {
+/**
+ * 预览PDF文件
+ * @param res - pdf文件流
+ */
+export const previewPdf = (res: Blob) => {
     const blob = new Blob([res], { type: "application/pdf" })
     if ("download" in document.createElement("a")) {
         const tagA = document.createElement("a")
@@ -65,8 +76,11 @@ export const previewPdf = (res: any) => {
     }
 }
 
-// 预览图片
-export const previewImage = (file: File) => {
+/**
+ * 预览图片
+ * @param res - 图片文件流
+ */
+export const previewImage = (file: Blob) => {
     if ("download" in document.createElement("a")) {
         const tagA = document.createElement("a")
         tagA.style.display = "none"
