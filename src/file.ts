@@ -93,7 +93,24 @@ export const previewImage = (file: Blob) => {
     }
 }
 
+/**
+ * 格式化显示文件大小
+ * @param fileSize 文件大小值
+ * @returns 格式化后的文件大小值
+ */
+export const convertSize = (fileSize: string | null) => {
+    if (fileSize === null || fileSize === "") return "0Kb"
+    const unitArr = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"]
+    let index = 0
+    const originSize = parseFloat(fileSize)
+    index = Math.floor(Math.log(originSize) / Math.log(1024))
+    const size = originSize / Math.pow(1024, index)
+    const sizeString = size.toFixed(2)
+    return sizeString + unitArr[index]
+}
+
 export default {
+    convertSize,
     previewImage,
     previewPdf,
     downloadBlobFile,
