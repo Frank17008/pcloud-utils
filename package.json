@@ -1,6 +1,6 @@
 {
     "name": "@pointcloud/pcloud-utils",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "点云前端工具函数库",
     "types": "./dist/types/index.d.ts",
     "main": "dist/index.umd.js",
