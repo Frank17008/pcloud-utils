@@ -1,6 +1,7 @@
 import formTest from "./formTest"
 import file from "./file"
 import cache from "./cache"
+import treeHelper from "./treeHelper"
 
 /**
  * 生成uuid
@@ -85,4 +86,6 @@ function groupByField<T>(sortData: T[], fieldName: string): { label: string; dat
     return sorted
 }
 
-export { formTest, file, cache, uuid, numConvertToChinese, groupByField }
+export { formTest, file, cache, treeHelper, uuid, numConvertToChinese, groupByField }
+export type { TreeNode } from "./treeHelper"
+export type { CacheType } from "./cache"

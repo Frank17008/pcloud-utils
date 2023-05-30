@@ -1,4 +1,4 @@
-interface TreeNode {
+export interface TreeNode {
     parentId: string | number
     id: string
     key?: string
