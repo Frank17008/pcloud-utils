@@ -6,9 +6,9 @@ export type CacheType = "local" | "session" | "cookie"
  * 根据key获取缓存数据
  * @param key 唯一标识
  * @param cacheType 缓存类型 'local'(默认) / cookie / session;
- * @returns 返回key对应的缓存值,若找不到返回undefined
+ * @returns 返回key对应的缓存值,若找不到返回空字符串
  */
-export function getCache(key: string, cacheType: CacheType = "local"): string | undefined {
+export function getCache(key: string, cacheType: CacheType = "local"): string | { [key: string]: any } {
     let data
     switch (cacheType) {
         case "cookie":
