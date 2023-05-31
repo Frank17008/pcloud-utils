@@ -8,6 +8,24 @@ export interface TreeNode {
 }
 
 /**
+ * 查找指定元素
+ * @param node 源数组
+ * @param fn   过滤函数
+ * @returns 查找到的目标节点
+ */
+export function deepFind(node: TreeNode[], fn: Function): TreeNode | undefined {
+    const treelist = node instanceof Array ? node : [node]
+    for (let i = 0; i < treelist.length; i++) {
+        if (fn(treelist[i])) {
+            return treelist[i]
+        } else {
+            const target = deepFind(treelist[i].children || [], fn)
+            if (target) return target
+        }
+    }
+}
+
+/**
  * 按照全路径查找指定元素
  * @param node 源数组
  * @param fn   过滤函数
@@ -117,7 +135,6 @@ export const getParentIdsByTreeId = (treeData: TreeNode[], nodeId: string | numb
         let child: any = flatArray.find((_: TreeNode) => _[id] === nodeId)
         while (child && child.parentId) {
             ids = [child.parentId, ...ids]
-            // eslint-disable-next-line no-loop-func
             child = flatArray.find((item) => item[id] === child.parentId)
         }
         return ids
