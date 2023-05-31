@@ -91,10 +91,3 @@ export function clearAll(cacheType: CacheType = "local", keys?: string[]) {
             break
     }
 }
-
-export default {
-    getCache,
-    setCache,
-    clearCache,
-    clearAll,
-}

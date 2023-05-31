@@ -3,9 +3,11 @@ export type CacheType = "local" | "session" | "cookie";
  * 根据key获取缓存数据
  * @param key 唯一标识
  * @param cacheType 缓存类型 'local'(默认) / cookie / session;
- * @returns 返回key对应的缓存值,若找不到返回undefined
+ * @returns 返回key对应的缓存值,若找不到返回空字符串
  */
-export declare function getCache(key: string, cacheType?: CacheType): string | undefined;
+export declare function getCache(key: string, cacheType?: CacheType): string | {
+    [key: string]: any;
+};
 /**
  * 设置缓存数据
  * @param {string} key 唯一标识
@@ -25,10 +27,3 @@ export declare function clearCache(key: string, cacheType?: CacheType): void;
  * @param keys 唯一标识,type为cookie时必须
  */
 export declare function clearAll(cacheType?: CacheType, keys?: string[]): void;
-declare const _default: {
-    getCache: typeof getCache;
-    setCache: typeof setCache;
-    clearCache: typeof clearCache;
-    clearAll: typeof clearAll;
-};
-export default _default;

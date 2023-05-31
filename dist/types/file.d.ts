@@ -52,11 +52,4 @@ export declare const previewImage: (file: Blob) => void;
  * @returns 格式化后的文件大小值
  */
 export declare const convertSize: (fileSize: string | null) => string;
-declare const _default: {
-    convertSize: (fileSize: string | null) => string;
-    previewImage: (file: Blob) => void;
-    previewPdf: (res: Blob) => void;
-    downloadBlobFile: (res: Blob, name: string, type?: "excel" | "xls" | "xlsx" | "pdf" | "doc" | "docx" | "zip" | "rar" | "png" | "webp" | "bmp" | "jpeg" | "gif" | "tiff" | "svg" | "mp4" | undefined) => void;
-    tagADownload: typeof tagADownload;
-};
-export default _default;
+export {};

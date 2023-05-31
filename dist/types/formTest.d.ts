@@ -52,15 +52,3 @@ export declare function ValidatorCCA(cca: string): boolean;
  * @returns 是返回`true`,否返回`false`
  */
 export declare function ValidatorScore(score: string): boolean;
-declare const _default: {
-    ValidatorTel: typeof ValidatorTel;
-    ValidatorEmail: typeof ValidatorEmail;
-    ValidatorIdCard: typeof ValidatorIdCard;
-    ValidatorBankCard: typeof ValidatorBankCard;
-    ValidatorChinese: typeof ValidatorChinese;
-    ValidatorLetter: typeof ValidatorLetter;
-    ValidatorUrl: typeof ValidatorUrl;
-    ValidatorCCA: typeof ValidatorCCA;
-    ValidatorScore: typeof ValidatorScore;
-};
-export default _default;

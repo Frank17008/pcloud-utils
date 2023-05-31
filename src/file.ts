@@ -108,11 +108,3 @@ export const convertSize = (fileSize: string | null) => {
     const sizeString = size.toFixed(2)
     return sizeString + unitArr[index]
 }
-
-export default {
-    convertSize,
-    previewImage,
-    previewPdf,
-    downloadBlobFile,
-    tagADownload,
-}

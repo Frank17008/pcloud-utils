@@ -130,12 +130,3 @@ export const getParentIdsByTreeId = (treeData: TreeNode[], nodeId: string | numb
     }
     return getIds(toFlatArray(treeData))
 }
-
-export default {
-    getParentIdsByTreeId,
-    getTreeLeaf,
-    findFirstNode,
-    deepTraversal,
-    wideTraversal,
-    deepFindPath,
-}

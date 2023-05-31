@@ -87,15 +87,3 @@ export function ValidatorScore(score: string): boolean {
     const Score = /^([0-9]|10)$/
     return Score.test(score)
 }
-
-export default {
-    ValidatorTel,
-    ValidatorEmail,
-    ValidatorIdCard,
-    ValidatorBankCard,
-    ValidatorChinese,
-    ValidatorLetter,
-    ValidatorUrl,
-    ValidatorCCA,
-    ValidatorScore,
-}

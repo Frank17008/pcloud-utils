@@ -1,7 +1,7 @@
-import formTest from "./formTest";
-import file from "./file";
-import cache from "./cache";
-import treeHelper from "./treeHelper";
+import * as formTest from "./formTest";
+import * as file from "./file";
+import * as cache from "./cache";
+import * as treeHelper from "./treeHelper";
 /**
  * 生成uuid
  * @returns 返回一个16位的字符串

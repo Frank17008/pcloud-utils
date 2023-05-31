@@ -54,14 +54,3 @@ export declare function getTreeLeaf(treeData: TreeNode[] | TreeNode, leafList?: 
 export declare const getParentIdsByTreeId: (treeData: TreeNode[], nodeId: string | number, config?: {
     [key: string]: string;
 } | undefined) => string[] | number[];
-declare const _default: {
-    getParentIdsByTreeId: (treeData: TreeNode[], nodeId: string | number, config?: {
-        [key: string]: string;
-    } | undefined) => string[] | number[];
-    getTreeLeaf: typeof getTreeLeaf;
-    findFirstNode: typeof findFirstNode;
-    deepTraversal: typeof deepTraversal;
-    wideTraversal: typeof wideTraversal;
-    deepFindPath: typeof deepFindPath;
-};
-export default _default;
