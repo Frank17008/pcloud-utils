@@ -1,9 +1,9 @@
 {
     "name": "@pointcloud/pcloud-utils",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "点云前端工具函数库",
     "types": "./dist/types/index.d.ts",
-    "main": "dist/index.umd.js",
+    "main": "dist/index.esm.js",
     "type": "module",
     "scripts": {
         "build": "rollup -c",
