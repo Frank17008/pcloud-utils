@@ -7,6 +7,13 @@ export interface TreeNode {
     [key: string]: any;
 }
 /**
+ * 查找指定元素
+ * @param node 源数组
+ * @param fn   过滤函数
+ * @returns 查找到的目标节点
+ */
+export declare function deepFind(node: TreeNode[], fn: Function): TreeNode | undefined;
+/**
  * 按照全路径查找指定元素
  * @param node 源数组
  * @param fn   过滤函数
