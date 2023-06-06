@@ -3,6 +3,7 @@ import * as file from "./file"
 import * as cache from "./cache"
 import * as treeHelper from "./treeHelper"
 import * as SocketEmitter from "./socketEmitter"
+import * as numHelper from "./numHelper"
 
 /**
  * 生成uuid
@@ -13,54 +14,6 @@ function uuid(): string {
         return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1)
     }
     return S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4()
-}
-
-/**
- * 将数字转为中文
- * @param num 要转换的数字
- * @return 转换后的中文数字
- * */
-function numConvertToChinese(num: string): string {
-    if (num) {
-        const changeNum: string[] = ["零", "一", "二", "三", "四", "五", "六", "七", "八", "九"]
-        const unit: string[] = ["", "十", "百", "千", "万"]
-        const digital = parseInt(num, 10)
-        if (!digital) return "未知"
-        const getWan = (temp: number): string => {
-            const strArr = temp.toString().split("").reverse()
-            let newNum = ""
-            const newArr: any = []
-            strArr.forEach((item: string, index: number) => {
-                newArr.unshift(item === "0" ? changeNum[Number(item)] : changeNum[Number(item)] + unit[index])
-            })
-            const numArr: number[] = []
-            newArr.forEach((m: string, n: number) => {
-                if (m !== "零") numArr.push(n)
-            })
-            if (newArr.length > 1) {
-                newArr.forEach((m: string, n: number) => {
-                    if (newArr[newArr.length - 1] === "零") {
-                        if (n <= numArr[numArr.length - 1]) {
-                            newNum += m
-                        }
-                    } else {
-                        newNum += m
-                    }
-                })
-            } else {
-                newNum = newArr[0]
-            }
-            return newNum
-        }
-        const overWan = Math.floor(digital / 10000)
-        let noWan: any = digital % 10000
-        if (noWan.toString().length < 4) {
-            noWan = `0${noWan}`
-        }
-        return overWan ? `${getWan(overWan)}万${getWan(noWan)}` : getWan(digital)
-    } else {
-        return "一"
-    }
 }
 
 /**
@@ -87,6 +40,6 @@ function groupByField<T>(sortData: T[], fieldName: string): { label: string; dat
     return sorted
 }
 
-export { formTest, file, cache, treeHelper, uuid, numConvertToChinese, groupByField, SocketEmitter }
+export { formTest, file, cache, treeHelper, numHelper, uuid, groupByField, SocketEmitter }
 export type { TreeNode } from "./treeHelper"
 export type { CacheType } from "./cache"
