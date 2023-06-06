@@ -3,7 +3,10 @@ import * as file from "./file"
 import * as cache from "./cache"
 import * as treeHelper from "./treeHelper"
 import * as SocketEmitter from "./socketEmitter"
+// 数字工具助手
 import * as numHelper from "./numHelper"
+// 全屏工具助手
+import * as fscHelper from "./fscHelper"
 
 /**
  * 生成uuid
@@ -40,6 +43,6 @@ function groupByField<T>(sortData: T[], fieldName: string): { label: string; dat
     return sorted
 }
 
-export { formTest, file, cache, treeHelper, numHelper, uuid, groupByField, SocketEmitter }
+export { formTest, file, cache, treeHelper, numHelper, fscHelper, uuid, groupByField, SocketEmitter }
 export type { TreeNode } from "./treeHelper"
 export type { CacheType } from "./cache"
