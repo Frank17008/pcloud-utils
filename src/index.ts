@@ -2,6 +2,7 @@ import * as formTest from "./formTest"
 import * as file from "./file"
 import * as cache from "./cache"
 import * as treeHelper from "./treeHelper"
+import * as SocketEmitter from "./socketEmitter"
 
 /**
  * 生成uuid
@@ -86,6 +87,6 @@ function groupByField<T>(sortData: T[], fieldName: string): { label: string; dat
     return sorted
 }
 
-export { formTest, file, cache, treeHelper, uuid, numConvertToChinese, groupByField }
+export { formTest, file, cache, treeHelper, uuid, numConvertToChinese, groupByField, SocketEmitter }
 export type { TreeNode } from "./treeHelper"
 export type { CacheType } from "./cache"
