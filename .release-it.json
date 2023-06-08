@@ -4,7 +4,7 @@
         "release": false
     },
     "gitlab": {
-        "release": true
+        "release": false
     },
     "git": {
         "release": true,
@@ -13,5 +13,19 @@
     "npm": {
         "publish": true,
         "publishPath": "https://registry.npmjs.org"
+    },
+    "@release-it/conventional-changelog": {
+        "infile": "CHANGELOG.md",
+        "header": "# CHANGELOG",
+        "ignoreRecommendedBump": "true",
+        "preset": {
+            "types": [
+                { "type": "feat", "section": "Features" },
+                { "type": "fix", "section": "Bug Fixes" },
+                { "type": "docs", "hidden": true },
+                { "type": "perf", "hidden": true },
+                { "type": "test", "hidden": true }
+            ]
+        }
     }
 }
