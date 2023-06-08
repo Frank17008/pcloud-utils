@@ -1,7 +1,7 @@
 {
     "hooks": {},
     "github": {
-        "release": true
+        "release": false
     },
     "git": {
         "commitMessage": "release: v${version}"
