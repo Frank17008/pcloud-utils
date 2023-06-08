@@ -1,4 +1,5 @@
 {
+    "hooks": {},
     "github": {
         "release": true
     },
@@ -7,8 +8,5 @@
     },
     "npm": {
         "publish": true
-    },
-    "hooks": {
-        "after:bump": "echo 更新版本成功"
     }
 }
