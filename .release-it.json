@@ -7,6 +7,7 @@
         "commitMessage": "release: v${version}"
     },
     "npm": {
-        "publish": true
+        "publish": true,
+        "publishPath": "https://registry.npmjs.org"
     }
 }
