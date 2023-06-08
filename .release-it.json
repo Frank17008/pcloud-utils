@@ -3,7 +3,11 @@
     "github": {
         "release": false
     },
+    "gitlab": {
+        "release": true
+    },
     "git": {
+        "release": false,
         "commitMessage": "release: v${version}"
     },
     "npm": {
