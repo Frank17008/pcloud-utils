@@ -7,7 +7,7 @@
         "release": true
     },
     "git": {
-        "release": false,
+        "release": true,
         "commitMessage": "release: v${version}"
     },
     "npm": {
