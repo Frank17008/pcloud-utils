@@ -14,7 +14,8 @@
         "release": "release-it",
         "docker:build": "docker build -f Dockerfile -t pcloud-utils .",
         "docker:tag": "docker tag pcloud-utils 192.168.104.211/pointcloud-fronted/pcloud-utils",
-        "docker:push": "npm run doc &&  npm run docker:build && npm run docker:tag && docker push 192.168.104.211/pointcloud-fronted/pcloud-utils"
+        "docker:delete": "docker rmi 192.168.104.211/pointcloud-fronted/pcloud-utils",
+        "docker:push": "npm run doc && npm run docker:build && npm run docker:tag && docker push 192.168.104.211/pointcloud-fronted/pcloud-utils && npm run docker:delete"
     },
     "keywords": [
         "pointcloud",
