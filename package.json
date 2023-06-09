@@ -11,7 +11,9 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "pretest": "npm run build",
         "doc": "typedoc --options typedoc.json",
-        "release": "release-it"
+        "release": "release-it",
+        "docker:build": "docker build -f Dockerfile -t pcloud-utils .",
+        "docker:push": "npm run build && npm run docker:build && docker push http://192.168.104.211/pointcloud-fronted/pcloud-utils"
     },
     "keywords": [
         "pointcloud",
