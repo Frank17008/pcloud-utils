@@ -2,6 +2,11 @@
  * 校验是否是手机号格式
  * @param tel - 字符串
  * @returns 是返回`true`,否返回`false`
+ * @example
+ * ```ts
+ * formTest.ValidatorTel('18165275413') // true;
+ * formTest.ValidatorTel('1816ss') // false;
+ * ```
  */
 export function ValidatorTel(tel: string): boolean {
     const Tel = /^(13[0-9]|14[5|7]|15[0|1|2|3|4|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/
@@ -12,6 +17,11 @@ export function ValidatorTel(tel: string): boolean {
  * 校验是否为电子邮箱格式
  * @param email - 字符串
  * @returns 是返回`true`,否返回`false`
+ * @example
+ * ```ts
+ * formTest.ValidatorEmail('40673522@qq.com') // true;
+ * formTest.ValidatorEmail('40673522m') // false;
+ * ```
  */
 export function ValidatorEmail(email: string): boolean {
     const Email = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
@@ -22,6 +32,11 @@ export function ValidatorEmail(email: string): boolean {
  * 校验是否为身份证号格式
  * @param idCard - 字符串
  * @returns 是返回`true`,否返回`false`
+ * @example
+ * ```ts
+ * formTest.ValidatorIdCard('610343197806171621') // true;
+ * formTest.ValidatorIdCard('61036ww') // false;
+ * ```
  */
 export function ValidatorIdCard(idCard: string): boolean {
     const IdCard = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/

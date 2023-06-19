@@ -8,6 +8,10 @@ export function fullscreen(element: Element) {
 
 /**
  * 退出浏览器全屏模式
+ * @example
+ * ```ts
+ * fscHelper.exitFullscreen();
+ * ```
  */
 export function exitFullscreen() {
     if (!isFullscreen()) return

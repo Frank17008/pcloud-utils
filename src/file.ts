@@ -4,6 +4,10 @@
  * @param options.url - 下载地址
  * @param options.title - 下载标题
  * @param options.target - 窗口位置
+ * @example
+ * ```ts
+ * file.tagADownload({ url: 'http://l0calhost:8080/test.pdf', title: '文档名称' });
+ * ```
  */
 export function tagADownload(options: { url: string; title: string; target?: string }) {
     const { url = "", title = "", target = "_blank" } = options
@@ -43,6 +47,10 @@ type FILETYPE = keyof typeof FileType
  * @param res - 文件流
  * @param name - 文件名称
  * @param type - 文件类型
+ * @example
+ * ```ts
+ * file.downloadBlobFile(blob文件流, '文件名称', 'excel');
+ * ```
  */
 export const downloadBlobFile = (res: Blob, name: string, type?: FILETYPE) => {
     const blob = type ? new Blob([res], { type: FileType[type] }) : new Blob([res])
@@ -97,6 +105,10 @@ export const previewImage = (file: Blob) => {
  * 格式化显示文件大小
  * @param fileSize 文件大小值
  * @returns 格式化后的文件大小值
+ * @example
+ * ```ts
+ * file.convertSize('1024') // 1MB;
+ * ```
  */
 export const convertSize = (fileSize: string | null) => {
     if (fileSize === null || fileSize === "") return "0Kb"
