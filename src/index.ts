@@ -8,6 +8,8 @@ import * as numHelper from "./numHelper"
 // 全屏工具助手
 import * as fscHelper from "./fscHelper"
 
+import IndexDB from "./indexDB"
+
 /**
  * 生成uuid
  * @returns 返回一个16位的字符串
@@ -43,6 +45,6 @@ function groupByField<T>(sortData: T[], fieldName: string): { label: string; dat
     return sorted
 }
 
-export { formTest, file, cache, treeHelper, numHelper, fscHelper, uuid, groupByField, SocketEmitter }
+export { formTest, file, cache, treeHelper, numHelper, fscHelper, uuid, groupByField, SocketEmitter, IndexDB }
 export type { TreeNode } from "./treeHelper"
 export type { CacheType } from "./cache"
