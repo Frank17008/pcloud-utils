@@ -1,6 +1,6 @@
 {
     "name": "@pointcloud/pcloud-utils",
-    "version": "0.0.11",
+    "version": "0.0.12",
     "description": "点云前端工具函数库",
     "types": "./dist/types/index.d.ts",
     "main": "dist/index.esm.js",
