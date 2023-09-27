@@ -1,14 +1,14 @@
-import * as formTest from "./formTest"
-import * as file from "./file"
-import * as cache from "./cache"
-import * as treeHelper from "./treeHelper"
-import * as SocketEmitter from "./socketEmitter"
+import * as formTest from './formTest'
+import * as file from './file'
+import * as cache from './cache'
+import * as treeHelper from './treeHelper'
+import * as SocketEmitter from './socketEmitter'
 // 数字工具助手
-import * as numHelper from "./numHelper"
+import * as numHelper from './numHelper'
 // 全屏工具助手
-import * as fscHelper from "./fscHelper"
+import * as fscHelper from './fscHelper'
 
-import IndexDB from "./indexDB"
+import IndexDB from './indexDB'
 
 /**
  * 生成uuid
@@ -18,7 +18,7 @@ function uuid(): string {
     function S4() {
         return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1)
     }
-    return S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4()
+    return S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4()
 }
 
 /**
@@ -31,7 +31,7 @@ function groupByField<T>(sortData: T[], fieldName: string): { label: string; dat
     const groupBy = (array: T[], f: Function): { label: string; data: any }[] => {
         const groups: any = {}
         array.forEach((o) => {
-            const group: string = f(o) || "未知"
+            const group: string = f(o) || '未知'
             groups[group] = groups[group] || []
             groups[group].push(o)
         })
@@ -46,5 +46,5 @@ function groupByField<T>(sortData: T[], fieldName: string): { label: string; dat
 }
 
 export { formTest, file, cache, treeHelper, numHelper, fscHelper, uuid, groupByField, SocketEmitter, IndexDB }
-export type { TreeNode } from "./treeHelper"
-export type { CacheType } from "./cache"
+export type { TreeNode } from './treeHelper'
+export type { CacheType } from './cache'
