@@ -1,3 +1,4 @@
+export declare const TelRegExp: RegExp;
 /**
  * 校验是否是手机号格式
  * @param tel - 字符串
@@ -9,6 +10,7 @@
  * ```
  */
 export declare function ValidatorTel(tel: string): boolean;
+export declare const EmailRegExp: RegExp;
 /**
  * 校验是否为电子邮箱格式
  * @param email - 字符串
@@ -20,6 +22,7 @@ export declare function ValidatorTel(tel: string): boolean;
  * ```
  */
 export declare function ValidatorEmail(email: string): boolean;
+export declare const IdCardRegExp: RegExp;
 /**
  * 校验是否为身份证号格式
  * @param idCard - 字符串
@@ -31,6 +34,7 @@ export declare function ValidatorEmail(email: string): boolean;
  * ```
  */
 export declare function ValidatorIdCard(idCard: string): boolean;
+export declare const BankCardRegExp: RegExp;
 /**
  * 校验是否为银行卡号格式
  * @param bankCard - 字符串
@@ -38,11 +42,19 @@ export declare function ValidatorIdCard(idCard: string): boolean;
  */
 export declare function ValidatorBankCard(bankCard: string): boolean;
 /**
+ * 正则表达式 校验是否为汉字
+ */
+export declare const ChineseRegExp: RegExp;
+/**
  * 校验是否为汉字
  * @param chinese - 字符串
  * @returns 是返回`true`,否返回`false`
  */
 export declare function ValidatorChinese(chinese: string): boolean;
+/**
+ * 正则表达式 校验是否为字母
+ */
+export declare const LetterRegExp: RegExp;
 /**
  * 校验是否为字母
  * @param letter - 字符串
@@ -50,11 +62,19 @@ export declare function ValidatorChinese(chinese: string): boolean;
  */
 export declare function ValidatorLetter(letter: string): boolean;
 /**
+ * 正则表达式 域名
+ */
+export declare const UrlRegExp: RegExp;
+/**
  * 校验是否为url域名
  * @param url - 字符串
  * @returns 是返回`true`,否返回`false`
  */
 export declare function ValidatorUrl(url: string): boolean;
+/**
+ * 正则表达式 1~50位的汉字、数字、字母
+ */
+export declare const CCARegExp: RegExp;
 /**
  * 校验是否为1~50位的汉字数字字母
  * @param cca - 字符串
@@ -62,8 +82,12 @@ export declare function ValidatorUrl(url: string): boolean;
  */
 export declare function ValidatorCCA(cca: string): boolean;
 /**
- * 校验是否为分数
- * @param score - 字符串
+ * 正则表达式 密码校验 8-20位数字、大小写字母、特殊符号组合
+ */
+export declare const PswRegExp: RegExp;
+/**
+ * 校验密码是否为8-20位数字、大小写字母、特殊符号组合
+ * @param password - 字符串
  * @returns 是返回`true`,否返回`false`
  */
-export declare function ValidatorScore(score: string): boolean;
+export declare function ValidatorPsw(password: string): boolean;
