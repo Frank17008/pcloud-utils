@@ -15,10 +15,19 @@ import IndexDB from './indexDB'
  * @returns 返回一个16位的字符串
  */
 function uuid(): string {
-    function S4() {
-        return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1)
-    }
-    return S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4()
+  function S4() {
+    return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1)
+  }
+  return S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4()
+}
+/**
+ * eval函数的替代
+ * @param fn Function
+ * @returns
+ */
+function evil(fn: Function) {
+  const Fn = Function
+  return new Fn('return ' + fn)()
 }
 
 /**
@@ -28,23 +37,23 @@ function uuid(): string {
  * @returns 返回分组后的数组
  */
 function groupByField<T>(sortData: T[], fieldName: string): { label: string; data: T[] }[] {
-    const groupBy = (array: T[], f: Function): { label: string; data: any }[] => {
-        const groups: any = {}
-        array.forEach((o) => {
-            const group: string = f(o) || '未知'
-            groups[group] = groups[group] || []
-            groups[group].push(o)
-        })
-        return Object.keys(groups).map((group) => {
-            return { label: group, data: groups[group] }
-        })
-    }
-    const sorted = groupBy(sortData, (item: any) => {
-        return item[fieldName]
+  const groupBy = (array: T[], f: Function): { label: string; data: any }[] => {
+    const groups: any = {}
+    array.forEach((o) => {
+      const group: string = f(o) || '未知'
+      groups[group] = groups[group] || []
+      groups[group].push(o)
     })
-    return sorted
+    return Object.keys(groups).map((group) => {
+      return { label: group, data: groups[group] }
+    })
+  }
+  const sorted = groupBy(sortData, (item: any) => {
+    return item[fieldName]
+  })
+  return sorted
 }
 
-export { formTest, file, cache, treeHelper, numHelper, fscHelper, uuid, groupByField, SocketEmitter, IndexDB }
+export { formTest, file, cache, treeHelper, numHelper, fscHelper, uuid, evil, groupByField, SocketEmitter, IndexDB }
 export type { TreeNode } from './treeHelper'
 export type { CacheType } from './cache'
