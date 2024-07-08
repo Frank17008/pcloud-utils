@@ -12,6 +12,12 @@ import IndexDB from './indexDB';
  */
 declare function uuid(): string;
 /**
+ * eval函数的替代
+ * @param fn Function
+ * @returns
+ */
+declare function evil(fn: Function): any;
+/**
  * 按照某个字段对数组进行分组
  * @param sortData 源数据数组
  * @param fieldName 分组的字段
@@ -21,6 +27,6 @@ declare function groupByField<T>(sortData: T[], fieldName: string): {
     label: string;
     data: T[];
 }[];
-export { formTest, file, cache, treeHelper, numHelper, fscHelper, uuid, groupByField, SocketEmitter, IndexDB };
+export { formTest, file, cache, treeHelper, numHelper, fscHelper, uuid, evil, groupByField, SocketEmitter, IndexDB };
 export type { TreeNode } from './treeHelper';
 export type { CacheType } from './cache';
