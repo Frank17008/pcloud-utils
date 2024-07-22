@@ -7,8 +7,8 @@ import * as SocketEmitter from './socketEmitter'
 import * as numHelper from './numHelper'
 // 全屏工具助手
 import * as fscHelper from './fscHelper'
-
 import IndexDB from './indexDB'
+import * as coordTransform from './coordTransform'
 
 /**
  * 生成uuid
@@ -54,6 +54,6 @@ function groupByField<T>(sortData: T[], fieldName: string): { label: string; dat
   return sorted
 }
 
-export { formTest, file, cache, treeHelper, numHelper, fscHelper, uuid, evil, groupByField, SocketEmitter, IndexDB }
+export { formTest, file, cache, treeHelper, numHelper, fscHelper, uuid, evil, groupByField, SocketEmitter, IndexDB, coordTransform }
 export type { TreeNode } from './treeHelper'
 export type { CacheType } from './cache'
