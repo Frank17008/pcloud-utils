@@ -11,7 +11,7 @@ export const TelRegExp = /^(13[0-9]|14[5|7]|15[0|1|2|3|4|5|6|7|8|9]|17[0-9]|18[0
  * ```
  */
 export function ValidatorTel(tel: string): boolean {
-    return TelRegExp.test(tel)
+  return TelRegExp.test(tel)
 }
 
 export const EmailRegExp = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
@@ -26,7 +26,7 @@ export const EmailRegExp = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
  * ```
  */
 export function ValidatorEmail(email: string): boolean {
-    return EmailRegExp.test(email)
+  return EmailRegExp.test(email)
 }
 
 export const IdCardRegExp = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/
@@ -41,7 +41,7 @@ export const IdCardRegExp = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/
  * ```
  */
 export function ValidatorIdCard(idCard: string): boolean {
-    return IdCardRegExp.test(idCard)
+  return IdCardRegExp.test(idCard)
 }
 
 export const BankCardRegExp = /^([1-9]{1})(\d{14}|\d{18})$/
@@ -52,7 +52,7 @@ export const BankCardRegExp = /^([1-9]{1})(\d{14}|\d{18})$/
  * @returns 是返回`true`,否返回`false`
  */
 export function ValidatorBankCard(bankCard: string): boolean {
-    return BankCardRegExp.test(bankCard)
+  return BankCardRegExp.test(bankCard)
 }
 
 /**
@@ -65,7 +65,7 @@ export const ChineseRegExp = /^[u4e00-u9fa5]$/
  * @returns 是返回`true`,否返回`false`
  */
 export function ValidatorChinese(chinese: string): boolean {
-    return ChineseRegExp.test(chinese)
+  return ChineseRegExp.test(chinese)
 }
 
 /**
@@ -78,7 +78,7 @@ export const LetterRegExp = /^[A-Za-z]*$/
  * @returns 是返回`true`,否返回`false`
  */
 export function ValidatorLetter(letter: string): boolean {
-    return LetterRegExp.test(letter)
+  return LetterRegExp.test(letter)
 }
 
 /**
@@ -91,7 +91,7 @@ export const UrlRegExp = /^(https?:|mailto:|tel:)$/
  * @returns 是返回`true`,否返回`false`
  */
 export function ValidatorUrl(url: string): boolean {
-    return UrlRegExp.test(url)
+  return UrlRegExp.test(url)
 }
 
 /**
@@ -104,13 +104,13 @@ export const CCARegExp = /^[\u4e00-\u9fa5a-zA-Z0-9]{1,50}$/
  * @returns 是返回`true`,否返回`false`
  */
 export function ValidatorCCA(cca: string): boolean {
-    return CCARegExp.test(cca)
+  return CCARegExp.test(cca)
 }
 
 /**
  * 正则表达式 密码校验 8-20位数字、大小写字母、特殊符号组合
  */
-export const PswRegExp = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_+])[A-Za-z0-9!@#$%^&*()_+]{8,20}$/
+export const PswRegExp = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_+\.])[A-Za-z0-9!@#$%^&*()_+\.]{8,20}$/
 
 /**
  * 校验密码是否为8-20位数字、大小写字母、特殊符号组合
@@ -118,5 +118,5 @@ export const PswRegExp = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_+])
  * @returns 是返回`true`,否返回`false`
  */
 export function ValidatorPsw(password: string): boolean {
-    return PswRegExp.test(password)
+  return PswRegExp.test(password)
 }
