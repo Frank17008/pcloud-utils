@@ -48,10 +48,9 @@
     "rollup-plugin-terser": "^7.0.2",
     "tslib": "^2.5.2",
     "typedoc": "^0.24.7",
-    "typescript": "^5.0.4"
-  },
-  "dependencies": {
+    "typescript": "^5.0.4",
     "@types/js-cookie": "^3.0.3",
     "js-cookie": "^3.0.5"
-  }
+  },
+  "dependencies": {}
 }
