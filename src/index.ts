@@ -9,6 +9,7 @@ import * as numHelper from './numHelper'
 import * as fscHelper from './fscHelper'
 import IndexDB from './indexDB'
 import * as coordTransform from './coordTransform'
+import * as http from './http'
 
 /**
  * 生成uuid
@@ -54,6 +55,6 @@ function groupByField<T>(sortData: T[], fieldName: string): { label: string; dat
   return sorted
 }
 
-export { formTest, file, cache, treeHelper, numHelper, fscHelper, uuid, evil, groupByField, SocketEmitter, IndexDB, coordTransform }
+export { formTest, file, cache, treeHelper, numHelper, fscHelper, uuid, evil, groupByField, SocketEmitter, IndexDB, coordTransform, http }
 export type { TreeNode } from './treeHelper'
 export type { CacheType } from './cache'
