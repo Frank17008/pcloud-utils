@@ -6,6 +6,7 @@ export const TelRegExp = /^(13[0-9]|14[5|7]|15[0|1|2|3|4|5|6|7|8|9]|17[0-9]|18[0
  * @returns 是返回`true`,否返回`false`
  * @example
  * ```ts
+ * import { formTest } from "@pointcloud/pcloud-utils";
  * formTest.ValidatorTel('18165275413') // true;
  * formTest.ValidatorTel('1816ss') // false;
  * ```
@@ -21,6 +22,7 @@ export const EmailRegExp = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
  * @returns 是返回`true`,否返回`false`
  * @example
  * ```ts
+ * import { formTest } from "@pointcloud/pcloud-utils";
  * formTest.ValidatorEmail('40673522@qq.com') // true;
  * formTest.ValidatorEmail('40673522m') // false;
  * ```
@@ -34,8 +36,10 @@ export const IdCardRegExp = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/
  * 校验是否为身份证号格式
  * @param idCard - 字符串
  * @returns 是返回`true`,否返回`false`
+ * @description 兼容第一代15位号码的身份证, 只校验数字位数
  * @example
  * ```ts
+ * import { formTest } from "@pointcloud/pcloud-utils";
  * formTest.ValidatorIdCard('610343197806171621') // true;
  * formTest.ValidatorIdCard('61036ww') // false;
  * ```
@@ -76,6 +80,12 @@ export const LetterRegExp = /^[A-Za-z]*$/
  * 校验是否为字母
  * @param letter - 字符串
  * @returns 是返回`true`,否返回`false`
+ * @example
+ * ```ts
+ * import { formTest } from "@pointcloud/pcloud-utils";
+ * formTest.ValidatorLetter('a') // true;
+ * formTest.ValidatorLetter('a1') // false;
+ * ```
  */
 export function ValidatorLetter(letter: string): boolean {
   return LetterRegExp.test(letter)
@@ -89,6 +99,15 @@ export const UrlRegExp = /^(https?:|mailto:|tel:)$/
  * 校验是否为url域名
  * @param url - 字符串
  * @returns 是返回`true`,否返回`false`
+ * @example
+ * ```ts
+ * import { formTest } from "@pointcloud/pcloud-utils";
+ * formTest.ValidatorUrl('https://www.baidu.com') // true;
+ * formTest.ValidatorUrl('http://www.baidu.com') // true;
+ * formTest.ValidatorUrl('mailto:') // true;
+ * formTest.ValidatorUrl('tel:') // true;
+ * formTest.ValidatorUrl('http://www.baidu.com') // false;
+ * ```
  */
 export function ValidatorUrl(url: string): boolean {
   return UrlRegExp.test(url)
@@ -102,6 +121,16 @@ export const CCARegExp = /^[\u4e00-\u9fa5a-zA-Z0-9]{1,50}$/
  * 校验是否为1~50位的汉字数字字母
  * @param cca - 字符串
  * @returns 是返回`true`,否返回`false`
+ * @example
+ * ```ts
+ * import { formTest } from "@pointcloud/pcloud-utils";
+ * formTest.ValidatorCCA('你好') // true;
+ * formTest.ValidatorCCA('你好1') // true;
+ * formTest.ValidatorCCA('你好1a') // true;
+ * formTest.ValidatorCCA('你好1a.') // true;
+ * formTest.ValidatorCCA('你好1a.1') // true;
+ * formTest.ValidatorCCA('你好1a.1.') // false;
+ * ```
  */
 export function ValidatorCCA(cca: string): boolean {
   return CCARegExp.test(cca)
@@ -116,6 +145,15 @@ export const PswRegExp = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_+\.
  * 校验密码是否为8-20位数字、大小写字母、特殊符号组合
  * @param password - 字符串
  * @returns 是返回`true`,否返回`false`
+ * @example
+ * ```ts
+ * import { formTest } from "@pointcloud/pcloud-utils";
+ * formTest.ValidatorPsw('12345678') // false;
+ * formTest.ValidatorPsw('12345678a') // false;
+ * formTest.ValidatorPsw('12345678a.') // true;
+ * formTest.ValidatorPsw('12345678a.1') // true;
+ * formTest.ValidatorPsw('12345678a.1.') // false;
+ * ```
  */
 export function ValidatorPsw(password: string): boolean {
   return PswRegExp.test(password)

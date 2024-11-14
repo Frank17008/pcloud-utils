@@ -1,4 +1,4 @@
-export type CacheType = "local" | "session" | "cookie";
+export type CacheType = 'local' | 'session' | 'cookie';
 /**
  * 根据key获取缓存数据
  * @param key 唯一标识
@@ -21,6 +21,7 @@ export declare function getCache(key: string, cacheType?: CacheType): string | {
  * @param {string} cacheType 缓存类型 'local'(默认) / cookie / session;
  * @example
  * ```ts
+ * import { cache } from "@pointclous/pcloud-utils"
  * cache.setCache('person',{ name:'Tom', age:18 },'session');
  * cache.setCache('person',{ name:'Tom', age:18 },'local');
  * cache.setCache('person',{ name:'Tom', age:18 },'cookie');
@@ -33,6 +34,7 @@ export declare function setCache(key: string, value: any, cacheType?: CacheType)
  * @param cacheType 缓存类型 'local'(默认) / cookie / session;
  * @example
  * ```ts
+ * import { cache } from "@pointclous/pcloud-utils"
  * cache.clearCache('person','session');
  * ```
  */
@@ -41,5 +43,10 @@ export declare function clearCache(key: string, cacheType?: CacheType): void;
  * 清除所有缓存的值
  * @param cacheType 缓存类型 'local'(默认) / cookie / session;
  * @param keys 唯一标识,type为cookie时必须
+ * @example
+ * ```ts
+ * import { cache } from "@pointclous/pcloud-utils"
+ * cache.clearAll('session');
+ * ```
  */
 export declare function clearAll(cacheType?: CacheType, keys?: string[]): void;

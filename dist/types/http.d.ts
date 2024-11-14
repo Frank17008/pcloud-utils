@@ -26,20 +26,4 @@
  *  main().catch(console.error);
  * ```
  */
-export async function asyncPool<T>(limit: number, taskArr: T[], interatorFn: (item: T, arr: T[]) => void): Promise<void[]> {
-  const ret: Promise<void>[] = [] // 存储所有promise
-  const executing = new Set<Promise<void>>() // 存储当前正在执行的promise
-  for (const item of taskArr) {
-    const p = Promise.resolve()
-      .then(() => interatorFn(item, taskArr))
-      .finally(() => executing.delete(p))
-    // 加入队列
-    ret.push(p)
-    executing.add(p)
-    // 队列长度大于limit,等待执行队列中的任意一个promise执行完毕
-    if (executing.size >= limit) {
-      await Promise.race(executing)
-    }
-  }
-  return Promise.all(ret)
-}
+export declare function asyncPool<T>(limit: number, taskArr: T[], interatorFn: (item: T, arr: T[]) => void): Promise<void[]>;

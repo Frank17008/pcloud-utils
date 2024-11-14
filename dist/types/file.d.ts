@@ -6,6 +6,7 @@
  * @param options.target - 窗口位置
  * @example
  * ```ts
+ * import { file } from "@pointcloud/pcloud-utils"
  * file.tagADownload({ url: 'http://l0calhost:8080/test.pdf', title: '文档名称' });
  * ```
  */
@@ -35,11 +36,12 @@ declare enum FileType {
 type FILETYPE = keyof typeof FileType;
 /**
  * 下载文件流
- * @param res - 文件流
+ * @param res - 文件流 Blob
  * @param name - 文件名称
  * @param type - 文件类型
  * @example
  * ```ts
+ * import { file } from "@pointcloud/pcloud-utils"
  * file.downloadBlobFile(blob文件流, '文件名称', 'excel');
  * ```
  */
@@ -48,6 +50,7 @@ export declare const downloadBlobFile: (res: Blob, name: string, type?: FILETYPE
  * 预览PDF文件
  * @param res - pdf文件流
  * @param hiddenToolBar - 是否隐藏工具栏
+ * @description 默认隐藏PDF预览的工具栏、状态栏等, 若为false,则通过拼接参数`#scrollbars=0&toolbar=0&statusbar=0`显示
  */
 export declare const previewPdf: (res: Blob, hiddenToolBar?: boolean) => void;
 /**
@@ -57,10 +60,11 @@ export declare const previewPdf: (res: Blob, hiddenToolBar?: boolean) => void;
 export declare const previewImage: (file: Blob) => void;
 /**
  * 格式化显示文件大小
- * @param fileSize 文件大小值
+ * @param fileSize 文件大小值 单位kb
  * @returns 格式化后的文件大小值
  * @example
  * ```ts
+ * import { file } from "@pointcloud/pcloud-utils"
  * file.convertSize('1024') // 1MB;
  * ```
  */
@@ -68,7 +72,14 @@ export declare const convertSize: (fileSize: string | null) => string;
 /**
  * 根据文件名获取文件扩展名
  * @param fileName 文件名称
+ * @description 如果在电脑端隐藏了文件的后缀名,此方法则不适用
  * @returns string
+ * @example
+ * ```ts
+ * import { file } from "@pointcloud/pcloud-utils"
+ * file.getFileExtension('测试文件.png') // png;
+ * file.getFileExtension('测试文件') // '';
+ * ```
  */
 export declare const getFileExtension: (fileName: string) => string;
 export {};

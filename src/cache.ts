@@ -1,6 +1,6 @@
-import Cookie from "js-cookie"
+import Cookie from 'js-cookie'
 
-export type CacheType = "local" | "session" | "cookie"
+export type CacheType = 'local' | 'session' | 'cookie'
 
 /**
  * 根据key获取缓存数据
@@ -14,30 +14,30 @@ export type CacheType = "local" | "session" | "cookie"
  * const info2 = cache.getCache('person', 'cookie');
  * ```
  */
-export function getCache(key: string, cacheType: CacheType = "local"): string | { [key: string]: any } {
-    let data
-    switch (cacheType) {
-        case "cookie":
-            data = Cookie.get(key)
-            break
-        case "session":
-            const strS = sessionStorage.getItem(key) || ""
-            try {
-                data = JSON.parse(strS)
-            } catch (e) {
-                data = strS
-            }
-            break
-        default:
-            const strL = localStorage.getItem(key) || ""
-            try {
-                data = JSON.parse(strL)
-            } catch (e) {
-                data = strL
-            }
-            break
-    }
-    return data
+export function getCache(key: string, cacheType: CacheType = 'local'): string | { [key: string]: any } {
+  let data
+  switch (cacheType) {
+    case 'cookie':
+      data = Cookie.get(key)
+      break
+    case 'session':
+      const strS = sessionStorage.getItem(key) || ''
+      try {
+        data = JSON.parse(strS)
+      } catch (e) {
+        data = strS
+      }
+      break
+    default:
+      const strL = localStorage.getItem(key) || ''
+      try {
+        data = JSON.parse(strL)
+      } catch (e) {
+        data = strL
+      }
+      break
+  }
+  return data
 }
 
 /**
@@ -47,23 +47,24 @@ export function getCache(key: string, cacheType: CacheType = "local"): string | 
  * @param {string} cacheType 缓存类型 'local'(默认) / cookie / session;
  * @example
  * ```ts
+ * import { cache } from "@pointclous/pcloud-utils"
  * cache.setCache('person',{ name:'Tom', age:18 },'session');
  * cache.setCache('person',{ name:'Tom', age:18 },'local');
  * cache.setCache('person',{ name:'Tom', age:18 },'cookie');
  * ```
  */
-export function setCache(key: string, value: any, cacheType: CacheType = "local") {
-    switch (cacheType) {
-        case "cookie":
-            Cookie.set(key, value, { expires: 7 })
-            break
-        case "session":
-            sessionStorage.setItem(key, JSON.stringify(value))
-            break
-        default:
-            localStorage.setItem(key, JSON.stringify(value))
-            break
-    }
+export function setCache(key: string, value: any, cacheType: CacheType = 'local') {
+  switch (cacheType) {
+    case 'cookie':
+      Cookie.set(key, value, { expires: 7 })
+      break
+    case 'session':
+      sessionStorage.setItem(key, JSON.stringify(value))
+      break
+    default:
+      localStorage.setItem(key, JSON.stringify(value))
+      break
+  }
 }
 
 /**
@@ -72,38 +73,44 @@ export function setCache(key: string, value: any, cacheType: CacheType = "local"
  * @param cacheType 缓存类型 'local'(默认) / cookie / session;
  * @example
  * ```ts
+ * import { cache } from "@pointclous/pcloud-utils"
  * cache.clearCache('person','session');
  * ```
  */
-export function clearCache(key: string, cacheType: CacheType = "local") {
-    switch (cacheType) {
-        case "cookie":
-            Cookie.remove(key)
-            break
-        case "session":
-            sessionStorage.removeItem(key)
-            break
-        default:
-            localStorage.removeItem(key)
-            break
-    }
+export function clearCache(key: string, cacheType: CacheType = 'local') {
+  switch (cacheType) {
+    case 'cookie':
+      Cookie.remove(key)
+      break
+    case 'session':
+      sessionStorage.removeItem(key)
+      break
+    default:
+      localStorage.removeItem(key)
+      break
+  }
 }
 
 /**
  * 清除所有缓存的值
  * @param cacheType 缓存类型 'local'(默认) / cookie / session;
  * @param keys 唯一标识,type为cookie时必须
+ * @example
+ * ```ts
+ * import { cache } from "@pointclous/pcloud-utils"
+ * cache.clearAll('session');
+ * ```
  */
-export function clearAll(cacheType: CacheType = "local", keys?: string[]) {
-    switch (cacheType) {
-        case "cookie":
-            keys?.forEach((key) => Cookie.remove(key))
-            break
-        case "session":
-            sessionStorage.clear()
-            break
-        default:
-            localStorage.clear()
-            break
-    }
+export function clearAll(cacheType: CacheType = 'local', keys?: string[]) {
+  switch (cacheType) {
+    case 'cookie':
+      keys?.forEach((key) => Cookie.remove(key))
+      break
+    case 'session':
+      sessionStorage.clear()
+      break
+    default:
+      localStorage.clear()
+      break
+  }
 }

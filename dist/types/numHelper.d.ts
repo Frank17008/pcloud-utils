@@ -4,6 +4,7 @@
  * @return 转换后的中文数字
  * @example
  * ```ts
+ * import { numHelper } from "@pointcloud/pcloud-utils"
  * numHelper.convertToChinese('102') // 一百零二;
  * ```
  * */
@@ -14,6 +15,7 @@ export declare function convertToChinese(num: string): string;
  * @returns 返回分隔后的字符
  * @example
  * ```ts
+ * import { numHelper } from "@pointcloud/pcloud-utils"
  * numHelper.thousand('10212') // 10,212;
  * ```
  */

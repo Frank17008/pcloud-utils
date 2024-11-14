@@ -1,10 +1,10 @@
 export interface TreeNode {
-    parentId: string | number
-    id: string
-    key?: string
-    value?: string | number
-    children: TreeNode[]
-    [key: string]: any
+  parentId: string | number
+  id: string
+  key?: string
+  value?: string | number
+  children: TreeNode[]
+  [key: string]: any
 }
 
 /**
@@ -14,15 +14,15 @@ export interface TreeNode {
  * @returns 查找到的目标节点
  */
 export function deepFind(node: TreeNode[], fn: Function): TreeNode | undefined {
-    const treelist = node instanceof Array ? node : [node]
-    for (let i = 0; i < treelist.length; i++) {
-        if (fn(treelist[i])) {
-            return treelist[i]
-        } else {
-            const target = deepFind(treelist[i].children || [], fn)
-            if (target) return target
-        }
+  const treelist = node instanceof Array ? node : [node]
+  for (let i = 0; i < treelist.length; i++) {
+    if (fn(treelist[i])) {
+      return treelist[i]
+    } else {
+      const target = deepFind(treelist[i].children || [], fn)
+      if (target) return target
     }
+  }
 }
 
 /**
@@ -33,19 +33,19 @@ export function deepFind(node: TreeNode[], fn: Function): TreeNode | undefined {
  * @returns 查找到的目标节点
  */
 export function deepFindPath(node: TreeNode[], fn: Function, result: any[] = []): TreeNode[] | undefined {
-    const treelist = node instanceof Array ? node : [node]
-    for (let i = 0; i < treelist.length; i++) {
-        if (fn(treelist[i])) {
-            result.push(treelist[i])
-            return result
-        } else {
-            const target = deepFindPath(treelist[i].children || [], fn, result)
-            if (target) {
-                result.push(treelist[i])
-                return result
-            }
-        }
+  const treelist = node instanceof Array ? node : [node]
+  for (let i = 0; i < treelist.length; i++) {
+    if (fn(treelist[i])) {
+      result.push(treelist[i])
+      return result
+    } else {
+      const target = deepFindPath(treelist[i].children || [], fn, result)
+      if (target) {
+        result.push(treelist[i])
+        return result
+      }
     }
+  }
 }
 
 /**
@@ -56,12 +56,12 @@ export function deepFindPath(node: TreeNode[], fn: Function, result: any[] = [])
  * @returns 查找到的目标节点
  */
 export function findFirstNode(node: TreeNode[], fn: Function, result: any[] = []): TreeNode {
-    const treelist = node instanceof Array ? node : [node]
-    for (let i = 0; i < treelist.length; i++) {
-        if (fn(treelist[i])) result.push(treelist[i])
-        treelist[i].children && findFirstNode(treelist[i].children, fn, result)
-    }
-    return result[0]
+  const treelist = node instanceof Array ? node : [node]
+  for (let i = 0; i < treelist.length; i++) {
+    if (fn(treelist[i])) result.push(treelist[i])
+    treelist[i].children && findFirstNode(treelist[i].children, fn, result)
+  }
+  return result[0]
 }
 
 /**
@@ -72,12 +72,12 @@ export function findFirstNode(node: TreeNode[], fn: Function, result: any[] = []
  * @returns 查找到的目标节点数组
  */
 export function deepTraversal(node: TreeNode[], fn: Function, result: any[] = []): any[] {
-    const treelist = node instanceof Array ? node : [node]
-    for (let i = 0; i < treelist.length; i++) {
-        if (fn ? fn(treelist[i]) : true) result.push(treelist[i])
-        treelist[i].children && deepTraversal(treelist[i].children || [], fn, result)
-    }
-    return result
+  const treelist = node instanceof Array ? node : [node]
+  for (let i = 0; i < treelist.length; i++) {
+    if (fn ? fn(treelist[i]) : true) result.push(treelist[i])
+    treelist[i].children && deepTraversal(treelist[i].children || [], fn, result)
+  }
+  return result
 }
 
 /**
@@ -88,14 +88,14 @@ export function deepTraversal(node: TreeNode[], fn: Function, result: any[] = []
  * @returns 查找到的目标节点数组
  */
 export function wideTraversal(node: TreeNode[], fn: Function, result: any[] = []): any[] {
-    const treelist = node instanceof Array ? node : [node]
-    const array: any[] = []
-    for (let i = 0; i < treelist.length; i++) {
-        if (fn ? fn(treelist[i]) : true) result.push(treelist[i])
-        treelist[i].children && array.push(...treelist[i].children)
-        treelist.length === i + 1 && wideTraversal(array, fn, result)
-    }
-    return result
+  const treelist = node instanceof Array ? node : [node]
+  const array: any[] = []
+  for (let i = 0; i < treelist.length; i++) {
+    if (fn ? fn(treelist[i]) : true) result.push(treelist[i])
+    treelist[i].children && array.push(...treelist[i].children)
+    treelist.length === i + 1 && wideTraversal(array, fn, result)
+  }
+  return result
 }
 
 /**
@@ -104,20 +104,20 @@ export function wideTraversal(node: TreeNode[], fn: Function, result: any[] = []
  * @param leafList 结果数组
  */
 export function getTreeLeaf(treeData: TreeNode[] | TreeNode, leafList: any[] = []): any[] {
-    if (Array.isArray(treeData)) {
-        treeData.forEach((item) => {
-            if (item.children && item.children.length) {
-                getTreeLeaf(item.children, leafList)
-            } else {
-                leafList.push(item)
-            }
-        })
-    } else if (treeData?.children?.length) {
-        getTreeLeaf(treeData.children, leafList)
-    } else {
-        leafList.push(treeData)
-    }
-    return leafList
+  if (Array.isArray(treeData)) {
+    treeData.forEach((item) => {
+      if (item.children && item.children.length) {
+        getTreeLeaf(item.children, leafList)
+      } else {
+        leafList.push(item)
+      }
+    })
+  } else if (treeData?.children?.length) {
+    getTreeLeaf(treeData.children, leafList)
+  } else {
+    leafList.push(treeData)
+  }
+  return leafList
 }
 
 /**
@@ -128,22 +128,22 @@ export function getTreeLeaf(treeData: TreeNode[] | TreeNode, leafList: any[] = [
  * @returns 返回所有父节点id数组
  */
 export const getParentIdsByTreeId = (treeData: TreeNode[], nodeId: string | number, config?: { [key: string]: string }): string[] | number[] => {
-    if (!treeData || !Array.isArray(treeData) || !nodeId) return []
-    const { children = "children", id = "id" } = config || {}
-    const getIds = (flatArray: any[]): string[] | number[] => {
-        let ids: any[] = [nodeId]
-        let child: any = flatArray.find((_: TreeNode) => _[id] === nodeId)
-        while (child && child.parentId) {
-            ids = [child.parentId, ...ids]
-            child = flatArray.find((item) => item[id] === child.parentId)
-        }
-        return ids
+  if (!treeData || !Array.isArray(treeData) || !nodeId) return []
+  const { children = 'children', id = 'id' } = config || {}
+  const getIds = (flatArray: any[]): string[] | number[] => {
+    let ids: any[] = [nodeId]
+    let child: any = flatArray.find((_: TreeNode) => _[id] === nodeId)
+    while (child && child.parentId) {
+      ids = [child.parentId, ...ids]
+      child = flatArray.find((item) => item[id] === child.parentId)
     }
-    const toFlatArray = (_tree: any[], parentId?: string | number): any[] => {
-        return _tree.reduce((t, _) => {
-            const child = _[children]
-            return [...t, parentId ? { ..._, parentId } : _, ...(child && child.length ? toFlatArray(child, _[id]) : [])]
-        }, [])
-    }
-    return getIds(toFlatArray(treeData))
+    return ids
+  }
+  const toFlatArray = (_tree: any[], parentId?: string | number): any[] => {
+    return _tree.reduce((t, _) => {
+      const child = _[children]
+      return [...t, parentId ? { ..._, parentId } : _, ...(child && child.length ? toFlatArray(child, _[id]) : [])]
+    }, [])
+  }
+  return getIds(toFlatArray(treeData))
 }

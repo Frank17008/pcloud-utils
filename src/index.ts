@@ -14,6 +14,11 @@ import * as http from './http'
 /**
  * 生成uuid
  * @returns 返回一个16位的字符串
+ * @example
+ * ```ts
+ * import { uuid } from "@pointcloud/pcloud-utils"
+ * const uuid = uuid()
+ * ```
  */
 function uuid(): string {
   function S4() {
@@ -36,6 +41,33 @@ function evil(fn: Function) {
  * @param sortData 源数据数组
  * @param fieldName 分组的字段
  * @returns 返回分组后的数组
+ * @example
+ * ```ts
+ * import { groupByField } from "@pointcloud/pcloud-utils"
+ * const mockData = [
+    { name: 'Alice', age: 25, city: 'New York' },
+    { name: 'Bob', age: 30, city: 'Los Angeles' },
+    { name: 'Charlie', age: 25, city: 'New York' },
+    { name: 'David', age: 35, city: 'Chicago' },
+    { name: 'Eve', age: 28, city: 'Los Angeles' }
+  ];
+  // 按照city字段分组
+  const groupedByCity = groupByField(mockData, 'city');
+  console.log(groupedByCity);
+  [
+    {
+      label: 'New York',
+      data: [{ name: 'Alice', age: 25, city: 'New York' },{ name: 'Charlie', age: 25, city: 'New York' }]
+    },
+    {
+      label: 'Los Angeles',
+      data: [{ name: 'Bob', age: 30, city: 'Los Angeles' },{ name: 'Eve', age: 28, city: 'Los Angeles'}]
+    },
+    { 
+      label: 'Chicago',
+      data: [{ name: 'David', age: 35, city: 'Chicago' }] 
+    }
+  ]
  */
 function groupByField<T>(sortData: T[], fieldName: string): { label: string; data: T[] }[] {
   const groupBy = (array: T[], f: Function): { label: string; data: any }[] => {
