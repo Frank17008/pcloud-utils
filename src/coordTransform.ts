@@ -14,6 +14,11 @@ const ee = 0.00669342162296594323
  * @param bd_lon 百度坐标系的经度
  * @param bd_lat 百度坐标系的纬度
  * @returns {number[]}
+ * @example
+ * ```ts
+ * import { coordTransform } from "@pointcloud/pcloud-utils";
+ * const [lon, lat] = coordTransform.bd09togcj02(116.404, 39.915)
+ * console.log(lon, lat) // [116.397627, 39.9086567]
  */
 export const bd09togcj02 = (bd_lon: number | string, bd_lat: number | string): number[] => {
   const x = +bd_lon - 0.0065
@@ -31,6 +36,11 @@ export const bd09togcj02 = (bd_lon: number | string, bd_lat: number | string): n
  * @param gc_lng 火星坐标系经度
  * @param gc_lat 火星坐标系纬度
  * @returns {number[]}
+ * @example
+ * ```ts
+ * import { coordTransform } from "@pointcloud/pcloud-utils";
+ * const [lon, lat] = coordTransform.gcj02tobd09(116.397627, 39.9086567)
+ * console.log(lon, lat) // [116.404, 39.915]
  */
 export const gcj02tobd09 = (gc_lng: number | string, gc_lat: number | string): number[] => {
   const lat = +gc_lat
@@ -47,6 +57,11 @@ export const gcj02tobd09 = (gc_lng: number | string, gc_lat: number | string): n
  * @param wgs_lng wgs84坐标系经度
  * @param wgs_lat wgs84坐标系纬度
  * @returns {number[]}
+ * @example
+ * ```ts
+ * import { coordTransform } from "@pointcloud/pcloud-utils";
+ * const [lon, lat] = coordTransform.wgs84togcj02(116.397627, 39.9086567)
+ * console.log(lon, lat) // [116.40387, 39.91006]
  */
 export const wgs84togcj02 = (wgs_lng: number | string, wgs_lat: number | string): number[] => {
   const lat = +wgs_lat
@@ -73,6 +88,11 @@ export const wgs84togcj02 = (wgs_lng: number | string, wgs_lat: number | string)
  * @param gc_lng 火星坐标系经度
  * @param gc_lat 火星坐标系纬度
  * @returns {number[]}
+ * @example
+ * ```ts
+ * import { coordTransform } from "@pointcloud/pcloud-utils";
+ * const [lon, lat] = coordTransform.gcj02towgs84(116.40387, 39.91006)
+ * console.log(lon, lat) // [116.397627, 39.9086567]
  */
 export const gcj02towgs84 = (gc_lng: number | string, gc_lat: number | string): number[] => {
   const lat = +gc_lat
@@ -131,6 +151,11 @@ const transformlng = (raw_lng: number | string, raw_lat: number | string): numbe
  * @param raw_lng 经度
  * @param raw_lat 维度
  * @returns {boolean}
+ * @example
+ * ```ts
+ * import { coordTransform } from "@pointcloud/pcloud-utils";
+ * const outChina = coordTransform.outOfChina(99.123, 10.2144)
+ * console.log(outChina) // true
  */
 export const outOfChina = (raw_lng: number | string, raw_lat: number | string): boolean => {
   const lat = +raw_lat

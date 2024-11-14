@@ -29,7 +29,7 @@ function uuid(): string {
 /**
  * eval函数的替代
  * @param fn Function
- * @returns
+ * @returns Function
  */
 function evil(fn: Function) {
   const Fn = Function
@@ -45,29 +45,29 @@ function evil(fn: Function) {
  * ```ts
  * import { groupByField } from "@pointcloud/pcloud-utils"
  * const mockData = [
-    { name: 'Alice', age: 25, city: 'New York' },
-    { name: 'Bob', age: 30, city: 'Los Angeles' },
-    { name: 'Charlie', age: 25, city: 'New York' },
-    { name: 'David', age: 35, city: 'Chicago' },
-    { name: 'Eve', age: 28, city: 'Los Angeles' }
-  ];
-  // 按照city字段分组
-  const groupedByCity = groupByField(mockData, 'city');
-  console.log(groupedByCity);
-  [
-    {
-      label: 'New York',
-      data: [{ name: 'Alice', age: 25, city: 'New York' },{ name: 'Charlie', age: 25, city: 'New York' }]
-    },
-    {
-      label: 'Los Angeles',
-      data: [{ name: 'Bob', age: 30, city: 'Los Angeles' },{ name: 'Eve', age: 28, city: 'Los Angeles'}]
-    },
-    { 
-      label: 'Chicago',
-      data: [{ name: 'David', age: 35, city: 'Chicago' }] 
-    }
-  ]
+ *   { name: 'Alice', age: 25, city: 'New York' },
+ *   { name: 'Bob', age: 30, city: 'Los Angeles' },
+ *   { name: 'Charlie', age: 25, city: 'New York' },
+ *   { name: 'David', age: 35, city: 'Chicago' },
+ *   { name: 'Eve', age: 28, city: 'Los Angeles' }
+ * ];
+ * // 按照city字段分组
+ * const groupedByCity = groupByField(mockData, 'city');
+ * console.log(groupedByCity);
+ * [
+ *   {
+ *     label: 'New York',
+ *     data: [{ name: 'Alice', age: 25, city: 'New York' },{ name: 'Charlie', age: 25, city: 'New York' }]
+ *   },
+ *   {
+ *     label: 'Los Angeles',
+ *     data: [{ name: 'Bob', age: 30, city: 'Los Angeles' },{ name: 'Eve', age: 28, city: 'Los Angeles'}]
+ *   },
+ *   {
+ *     label: 'Chicago',
+ *     data: [{ name: 'David', age: 35, city: 'Chicago' }]
+ *   }
+ * ]
  */
 function groupByField<T>(sortData: T[], fieldName: string): { label: string; data: T[] }[] {
   const groupBy = (array: T[], f: Function): { label: string; data: any }[] => {

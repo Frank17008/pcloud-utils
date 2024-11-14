@@ -9,6 +9,7 @@ export type CacheType = 'local' | 'session' | 'cookie'
  * @returns 返回key对应的缓存值,若找不到返回空字符串
  * @example
  * ```ts
+ * import { cache } from "@pointclous/pcloud-utils";
  * const info1 = cache.getCache('person', 'session');
  * const info2 = cache.getCache('person', 'local');
  * const info2 = cache.getCache('person', 'cookie');

@@ -64,3 +64,83 @@ export function isFullscreen(): boolean | Element {
 export function fullScreenListener(type: 'addEventListener' | 'removeEventListener', fullscreenchange: (e: any) => void) {
   document[type]('fullscreenchange', fullscreenchange)
 }
+
+function fallbackCopyTextToClipboard(text: string) {
+  const textArea = document.createElement('textarea')
+  textArea.value = text
+  // 避免页面滚动
+  textArea.style.position = 'fixed'
+  textArea.style.top = '0px'
+  textArea.style.left = '0px'
+  textArea.style.width = '2em'
+  textArea.style.height = '2em'
+  textArea.style.padding = '0px'
+  textArea.style.border = 'none'
+  textArea.style.outline = 'none'
+  textArea.style.boxShadow = 'none'
+  textArea.style.background = 'transparent'
+  document.body.appendChild(textArea)
+  textArea.focus()
+  textArea.select()
+
+  try {
+    const successful = document.execCommand('copy')
+    const msg = successful ? 'successful' : 'unsuccessful'
+    console.log(`Fallback: Copying text command was ${msg}`)
+  } catch (err) {
+    console.error('Fallback: unable to copy', err)
+  }
+  document.body.removeChild(textArea)
+}
+
+/**
+ * 将文本复制到剪贴板
+ * 将给定的文本复制到剪贴板，并返回操作是否成功的布尔值
+ * @param text 要复制到剪贴板的字符串文本
+ * @description 兼容老版本浏览器的document.execCommand('copy')
+ * @returns Promise<boolean>
+ * @example
+ * ```ts
+ * import { fscHelper } from '@pointcloud/pcloud-utils'
+ * const res = await fscHelper.copyToClipboard('hello world')
+ * console.log(`Copy success: ${res}`);
+ * ```
+ */
+export async function copyToClipboard(text: string): Promise<boolean> {
+  if (!navigator.clipboard) {
+    // 如果浏览器不支持 Clipboard API，则使用传统的 textArea 方法
+    fallbackCopyTextToClipboard(text)
+    return true
+  }
+  try {
+    await navigator.clipboard.writeText(text)
+    return true
+  } catch (err) {
+    return false
+  }
+}
+
+/**
+ * 剪贴板读取文本，并返回读取到的字符串
+ * @param text 要复制到剪贴板的字符串文本
+ * @description 兼容老版本浏览器的document.execCommand('copy')
+ * @returns Promise<string | null>
+ * @example
+ * ```ts
+ * import { fscHelper } from '@pointcloud/pcloud-utils'
+ * const res = await fscHelper.pasteFromClipboard()
+ * console.log(`paste success: ${res}`);
+ * ```
+ */
+export async function pasteFromClipboard(): Promise<string | null> {
+  if (!navigator.clipboard) {
+    document.execCommand('paste')
+    return null
+  }
+  try {
+    const text = await navigator.clipboard.readText()
+    return text
+  } catch (err) {
+    return null
+  }
+}
