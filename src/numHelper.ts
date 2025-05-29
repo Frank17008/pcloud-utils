@@ -64,3 +64,25 @@ export function convertToChinese(num: string): string {
 export function thousand(num: string | number): string {
   return (num || 0).toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,')
 }
+
+interface GetRandomNumberOptions {
+  toFixed?: number;
+}
+/**
+ * 生成指定范围内的随机数
+ * 
+ * @param max 随机数的上限（不包含）
+ * @param min 随机数的下限（包含）
+ * @param options 可选配置项，包括小数点后保留的位数
+ * @param options.toFixed 小数点后保留的位数，默认为0
+ * @returns 在指定范围内的随机数，根据options配置四舍五入到指定的小数位
+ * @example
+ * ```ts
+ * import { numHelper } from "@pointcloud/pcloud-utils"
+ * numHelper.getRandomNumber(1, 10, { toFixed: 2 }) // 生成1到10之间的随机数，保留两位小数
+ * ```
+ */
+export function getRandomNumber( min: number, max: number, options?: GetRandomNumberOptions) {
+  const { toFixed = 0 } = options ?? {};
+  return Number((Math.random() * (max - min) + min).toFixed(toFixed));
+}
