@@ -12,9 +12,10 @@
 <div class="col-content">
 <div class="tsd-page-title">
 <h2>@pointcloud/pcloud-utils</h2></div>
-<div class="tsd-panel tsd-typography"><a id="md:点云科技前端工具函数库pointcloudpcloud-utils" class="tsd-anchor"></a><h1><a href="#md:点云科技前端工具函数库pointcloudpcloud-utils">点云科技前端工具函数库<code>@pointcloud/pcloud-utils</code></a></h1><p><img src="https://img.shields.io/badge/node-v16.20.0-brightgreen?logo=nodedotjs&color=rgb(0%2C126%2C298)" alt="node version"> <img src="https://img.shields.io/badge/docs%20by-typedoc-brightgreen?style=flat&color=%230081ff" alt="docs"> <img src="https://img.shields.io/badge/rollup-%23d14f0c?style=flat-square&logo=rollupdotjs&logoColor=%23eef01a" alt="building type"> <img src="https://img.shields.io/badge/license-ISC-rgb(144%2C190%2C8)?style=flat" alt="license"></p>
-<p><code>@pointcloud/pcloud-utils</code>是一个基于 ts 编写的前端函数库，主要解决项目中常见的函数的封装，便于各个项目能够快速使用，减少开发人员的开发工作量，提升开发效率。</p>
-<a id="md:功能特性" class="tsd-anchor"></a><h2><a href="#md:功能特性">功能特性</a></h2><ul>
+<div class="tsd-panel tsd-typography"><a id="md:前端工具函数库-pointcloudpcloud-utils" class="tsd-anchor"></a><h1><a href="#md:前端工具函数库-pointcloudpcloud-utils">前端工具函数库 <code>@pointcloud/pcloud-utils</code></a></h1><p><img src="https://img.shields.io/badge/node-v16.20.0-brightgreen?logo=nodedotjs&color=rgb(0%2C126%2C298)" alt="node version"> <img src="https://img.shields.io/badge/docs%20by-typedoc-brightgreen?style=flat&color=%230081ff" alt="docs"> <img src="https://img.shields.io/badge/rollup-%23d14f0c?style=flat-square&logo=rollupdotjs&logoColor=%23eef01a" alt="building type"> <img src="https://img.shields.io/badge/license-ISC-rgb(144%2C190%2C8)?style=flat" alt="license"></p>
+<p><code>@pointcloud/pcloud-utils</code> 是一个基于 TypeScript 编写的前端函数库，主要解决项目中常见的函数封装问题，便于各个项目能够快速使用，减少开发人员的工作量，提升开发效率。</p>
+<a id="md:中文说明" class="tsd-anchor"></a><h2><a href="#md:中文说明">中文说明</a></h2><p>该文档汇总了 <code>pcloud-utils</code> 项目中所有模块导出的函数成员，仅列出函数名称和简要功能描述。</p>
+<ul>
 <li>支持 esm、umd 方式加载</li>
 <li>支持 docker 构建文档站点</li>
 <li>支持自动化发布到 npm 及版本升级</li>
@@ -22,6 +23,123 @@
 <li>完善的文档说明</li>
 <li>支持按需引入</li>
 </ul>
+<a id="md:模块列表" class="tsd-anchor"></a><h2><a href="#md:模块列表">模块列表</a></h2><ul>
+<li><a href="#cache">cache</a></li>
+<li><a href="#coordtransform">coordTransform</a></li>
+<li><a href="#file">file</a></li>
+<li><a href="#formtest">formTest</a></li>
+<li><a href="#fschelper">fscHelper</a></li>
+<li><a href="#http">http</a></li>
+<li><a href="#indexdb">indexDB</a></li>
+<li><a href="#numhelper">numHelper</a></li>
+<li><a href="#socketemitter">SocketEmitter</a></li>
+<li><a href="#treehelper">treeHelper</a></li>
+<li><a href="#uuid">uuid</a></li>
+<li><a href="#groupbyfield">groupByField</a></li>
+</ul>
+<hr>
+<a id="md:cache" class="tsd-anchor"></a><h3><a href="#md:cache">cache</a></h3><p>提供浏览器端缓存操作功能。</p>
+<ul>
+<li>clearAll: 清除全部缓存数据。  </li>
+<li>clearCache: 按键清除指定缓存项。  </li>
+<li>getCache: 按键获取缓存值。  </li>
+<li>setCache: 按键存储缓存值。</li>
+</ul>
+<hr>
+<a id="md:coordtransform" class="tsd-anchor"></a><h3><a href="#md:coordtransform">coordTransform</a></h3><p>坐标转换工具，支持多种坐标系统之间的转换。</p>
+<ul>
+<li>bd09togcj02: 百度坐标转高德坐标。  </li>
+<li>gcj02tobd09: 高德坐标转百度坐标。  </li>
+<li>gcj02towgs84: 高德坐标转 GPS 坐标。  </li>
+<li>lonLatToMercator: 经纬度转墨卡托投影。  </li>
+<li>mercatorToLonLat: 墨卡托投影转回经纬度。  </li>
+<li>outOfChina: 判断坐标是否在中国境外。  </li>
+<li>wgs84togcj02: GPS 坐标转高德坐标。</li>
+</ul>
+<hr>
+<a id="md:file" class="tsd-anchor"></a><h3><a href="#md:file">file</a></h3><p>文件处理工具，适用于浏览器端。</p>
+<ul>
+<li>convertSize: 将字节大小转换为可读格式（如 KB、MB）。  </li>
+<li>downloadBlobFile: 下载 Blob 类型文件。  </li>
+<li>getFileExtension: 获取文件扩展名。  </li>
+<li>previewImage: 在浏览器中预览图片流, <code>&lt;a&gt;</code>标签直接下载打开。  </li>
+<li>previewPdf: 在浏览器中预览 PDF 文件。  </li>
+<li>tagADownload: 使用 <code>&lt;a&gt;</code> 标签触发下载文件url。</li>
+</ul>
+<hr>
+<a id="md:formtest" class="tsd-anchor"></a><h3><a href="#md:formtest">formTest</a></h3><p>表单验证工具，包含正则表达式和验证方法。</p>
+<ul>
+<li>ValidatorBankCard: 验证银行卡号。  </li>
+<li>ValidatorCCA: 验证中国公民身份证号（备用规则）。  </li>
+<li>ValidatorChinese: 验证中文字符。  </li>
+<li>ValidatorEmail: 验证邮箱地址。  </li>
+<li>ValidatorIdCard: 验证中国大陆身份证号码。  </li>
+<li>ValidatorLetter: 验证字母字符。  </li>
+<li>ValidatorPsw: 验证密码格式。  </li>
+<li>ValidatorTel: 验证电话号码。  </li>
+<li>ValidatorUrl: 验证 URL 地址。</li>
+</ul>
+<hr>
+<a id="md:fschelper" class="tsd-anchor"></a><h3><a href="#md:fschelper">fscHelper</a></h3><p>浏览器原生全屏控制和剪贴板操作工具。</p>
+<ul>
+<li>copyToClipboard: 复制文本到剪贴板。</li>
+<li>exitFullscreen: 退出全屏模式。  </li>
+<li>fullScreenListener: 添加全屏变化监听器。  </li>
+<li>fullscreen: 请求进入全屏模式。  </li>
+<li>fullscreenEnabled: 检查是否支持全屏功能。  </li>
+<li>isFullscreen: 检查当前是否处于全屏状态。  </li>
+<li>pasteFromClipboard: 从剪贴板粘贴文本。</li>
+</ul>
+<hr>
+<a id="md:http" class="tsd-anchor"></a><h3><a href="#md:http">http</a></h3><p>HTTP 工具类，用于网络请求控制。</p>
+<ul>
+<li>asyncPool: 控制并发异步任务数量（例如多个 HTTP 请求并发限制）。</li>
+</ul>
+<hr>
+<a id="md:indexdb" class="tsd-anchor"></a><h3><a href="#md:indexdb">indexDB</a></h3><p>浏览器IndexDB缓存工具类的实现。</p>
+<ul>
+<li>openDB: 打开数据库。</li>
+<li>put: 添加存储数据。</li>
+<li>update: 更新数据。</li>
+<li>get: 获取数据。</li>
+<li>remove: 删除数据。</li>
+<li>closeDB: 关闭数据库连接。</li>
+<li>deleteDB: 删除数据库。</li>
+</ul>
+<hr>
+<a id="md:socketemitter" class="tsd-anchor"></a><h3><a href="#md:socketemitter">SocketEmitter</a></h3><p>用于管理 WebSocket 通信与事件订阅。</p>
+<ul>
+<li>execAction: 执行 WebSocket 上的某个动作。  </li>
+<li>initWS: 初始化 WebSocket 连接。  </li>
+<li>subscribe: 订阅特定事件。  </li>
+<li>unsubscribe: 取消对特定事件的订阅。</li>
+</ul>
+<hr>
+<a id="md:numhelper" class="tsd-anchor"></a><h3><a href="#md:numhelper">numHelper</a></h3><p>数字处理工具。</p>
+<ul>
+<li>convertToChinese: 将数字转换为中文大写形式（常用于金额显示）。  </li>
+<li>thousand: 数字千分位格式化。</li>
+<li>getRandomNumber: 生成随机数字(支持小数位数)。</li>
+</ul>
+<hr>
+<a id="md:treehelper" class="tsd-anchor"></a><h3><a href="#md:treehelper">treeHelper</a></h3><p>树形结构操作工具。</p>
+<ul>
+<li>deepFind: 深度查找符合条件的节点。  </li>
+<li>deepFindPath: 查找节点并返回路径。  </li>
+<li>deepTraversal: 深度优先遍历树。  </li>
+<li>findFirstNode: 查找第一个匹配的节点。  </li>
+<li>getParentIdsByTreeId: 根据节点 ID 获取其所有父级 ID 路径。  </li>
+<li>getTreeLeaf: 获取树的所有叶子节点。  </li>
+<li>wideTraversal: 广度优先遍历树。</li>
+<li>flatToTree: 将列表结构转为树形结构。</li>
+<li>flatToList: 将树形结构转为列表结构。</li>
+</ul>
+<hr>
+<p>以下模块均为直接导出</p>
+<a id="md:uuid" class="tsd-anchor"></a><h3><a href="#md:uuid">uuid</a></h3><p>获取一个全局唯一标识符</p>
+<a id="md:groupbyfield" class="tsd-anchor"></a><h3><a href="#md:groupbyfield">groupByfield</a></h3><p>将列表数据按照某个字段进行分组</p>
+<hr>
+<p>如需更详细的使用方式、参数说明或示例，请查阅 <a href="./docs/index.html">官方文档</a>。</p>
 <a id="md:基本指令" class="tsd-anchor"></a><h2><a href="#md:基本指令">基本指令</a></h2><ul>
 <li><p><strong>构建项目</strong></p>
 <pre><code><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-0">run</span><span class="hl-1"> </span><span class="hl-0">build</span>
@@ -44,8 +162,10 @@
 </code><button>Copy</button></pre>
 </li>
 </ul>
-<a id="md:使用示例" class="tsd-anchor"></a><h2><a href="#md:使用示例">使用示例</a></h2><pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-0">cache</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-4">&#39;@pointcloud/pcloud-utils&#39;</span><br/><span class="hl-0">cache</span><span class="hl-1">.</span><span class="hl-5">setCache</span><span class="hl-1">(</span><span class="hl-4">&#39;person&#39;</span><span class="hl-1">, { </span><span class="hl-0">name:</span><span class="hl-1"> </span><span class="hl-4">&#39;Tom&#39;</span><span class="hl-1">, </span><span class="hl-0">age:</span><span class="hl-1"> </span><span class="hl-6">16</span><span class="hl-1"> }, </span><span class="hl-4">&#39;session&#39;</span><span class="hl-1">)</span>
+<hr>
+<a id="md:使用示例" class="tsd-anchor"></a><h2><a href="#md:使用示例">使用示例</a></h2><pre><code class="language-js"><span class="hl-3">import</span><span class="hl-1"> { </span><span class="hl-0">cache</span><span class="hl-1">, </span><span class="hl-0">uuid</span><span class="hl-1"> } </span><span class="hl-3">from</span><span class="hl-1"> </span><span class="hl-4">&quot;@pointcloud/pcloud-utils&quot;</span><span class="hl-1">;</span><br/><span class="hl-0">cache</span><span class="hl-1">.</span><span class="hl-5">setCache</span><span class="hl-1">(</span><span class="hl-4">&quot;person&quot;</span><span class="hl-1">, { </span><span class="hl-0">name:</span><span class="hl-1"> </span><span class="hl-4">&quot;Tom&quot;</span><span class="hl-1">, </span><span class="hl-0">age:</span><span class="hl-1"> </span><span class="hl-6">16</span><span class="hl-1"> }, </span><span class="hl-4">&quot;session&quot;</span><span class="hl-1">);</span><br/><span class="hl-7">const</span><span class="hl-1"> </span><span class="hl-8">uid</span><span class="hl-1"> = </span><span class="hl-5">uuid</span><span class="hl-1">();</span>
 </code><button>Copy</button></pre>
+<hr>
 </div></div>
 <div class="col-sidebar">
 <div class="page-menu">
@@ -68,10 +188,25 @@
 <ul>
 <li>
 <ul>
-<li><a href="#md:点云科技前端工具函数库pointcloudpcloud-utils"><span>点云科技前端工具函数库@pointcloud/pcloud-<wbr/>utils</span></a></li>
+<li><a href="#md:前端工具函数库-pointcloudpcloud-utils"><span>前端工具函数库 @pointcloud/pcloud-<wbr/>utils</span></a></li>
 <li>
 <ul>
-<li><a href="#md:功能特性"><span>功能特性</span></a></li>
+<li><a href="#md:中文说明"><span>中文说明</span></a></li>
+<li><a href="#md:模块列表"><span>模块列表</span></a></li>
+<li>
+<ul>
+<li><a href="#md:cache"><span>cache</span></a></li>
+<li><a href="#md:coordtransform"><span>coord<wbr/>Transform</span></a></li>
+<li><a href="#md:file"><span>file</span></a></li>
+<li><a href="#md:formtest"><span>form<wbr/>Test</span></a></li>
+<li><a href="#md:fschelper"><span>fsc<wbr/>Helper</span></a></li>
+<li><a href="#md:http"><span>http</span></a></li>
+<li><a href="#md:indexdb"><span>indexDB</span></a></li>
+<li><a href="#md:socketemitter"><span>Socket<wbr/>Emitter</span></a></li>
+<li><a href="#md:numhelper"><span>num<wbr/>Helper</span></a></li>
+<li><a href="#md:treehelper"><span>tree<wbr/>Helper</span></a></li>
+<li><a href="#md:uuid"><span>uuid</span></a></li>
+<li><a href="#md:groupbyfield"><span>group<wbr/>Byfield</span></a></li></ul></li>
 <li><a href="#md:基本指令"><span>基本指令</span></a></li>
 <li><a href="#md:使用示例"><span>使用示例</span></a></li></ul></li></ul></li></ul></div></details></div>
 <div class="site-menu">
