@@ -1,13 +1,14 @@
-import * as formTest from './formTest';
-import * as file from './file';
-import * as cache from './cache';
-import * as treeHelper from './treeHelper';
-import * as SocketEmitter from './socketEmitter';
-import * as numHelper from './numHelper';
-import * as fscHelper from './fscHelper';
-import IndexDB from './indexDB';
-import * as coordTransform from './coordTransform';
-import * as http from './http';
+import * as formTest from "./formTest";
+import * as file from "./file";
+import * as cache from "./cache";
+import * as treeHelper from "./treeHelper";
+import * as SocketEmitter from "./socketEmitter";
+import * as numHelper from "./numHelper";
+import * as fscHelper from "./fscHelper";
+import IndexDB from "./indexDB";
+import * as coordTransform from "./coordTransform";
+import * as http from "./http";
+import * as strHelper from "./strHelper";
 /**
  * 生成uuid
  * @returns 返回一个16位的字符串
@@ -61,6 +62,6 @@ declare function groupByField<T>(sortData: T[], fieldName: string): {
     label: string;
     data: T[];
 }[];
-export { formTest, file, cache, treeHelper, numHelper, fscHelper, uuid, evil, groupByField, SocketEmitter, IndexDB, coordTransform, http };
-export type { TreeNode } from './treeHelper';
-export type { CacheType } from './cache';
+export { formTest, file, cache, treeHelper, numHelper, fscHelper, uuid, evil, groupByField, SocketEmitter, IndexDB, coordTransform, http, strHelper, };
+export type { TreeNode } from "./treeHelper";
+export type { CacheType } from "./cache";
