@@ -8,9 +8,9 @@
   },
   "git": {
     "push": true,
-    "branch": "main",
-    "tagName": "v${version}",
-    "pushRepo": "origin/main"
+    "requireBranch": "main",
+    "tag": true,
+    "tagName": "v${version}"
   },
   "npm": {
     "publish": true,
