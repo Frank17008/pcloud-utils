@@ -46,7 +46,7 @@
     "@rollup/plugin-typescript": "^11.1.1",
     "@types/js-cookie": "^3.0.3",
     "js-cookie": "^3.0.5",
-    "release-it": "^15.4.1",
+    "release-it": "^15.11.0",
     "rollup": "^2.0.0",
     "rollup-plugin-cleanup": "^3.2.1",
     "rollup-plugin-delete": "^2.0.0",
