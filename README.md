@@ -28,6 +28,7 @@
 - [treeHelper](#treehelper)
 - [uuid](#uuid)
 - [groupByField](#groupbyfield)
+- [strHelper](#strhelper)
 ---
 
 ### cache
@@ -140,6 +141,14 @@ HTTP 工具类，用于网络请求控制。
 - getRandomNumber: 生成随机数字(支持小数位数)。
 
 ---
+
+### strHelper
+
+字符串处理工具。
+
+- toCamelCase: 将字符串转换为驼峰命名。  
+- toKebabCase: 将字符串转换为短横线命名。
+- uuid: 生成随机 UUID。
 
 ### treeHelper
 
