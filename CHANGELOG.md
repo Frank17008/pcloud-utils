@@ -1,5 +1,12 @@
 # 更新日志
 
+### [0.1.6](http://192.168.101.96:8090/pointcloud_frontend/basiclibrary/pcloud-utils/compare/v0.1.5...v0.1.6) (2025-10-31)
+
+
+### Features
+
+* **eventBus:** 添加事件总线模块并导出相关类型 ([9346b44](http://192.168.101.96:8090/pointcloud_frontend/basiclibrary/pcloud-utils/commit/9346b44a00c5181569b20c3ea39b286d8e792840))
+
 ### 0.1.5 (2025-06-11)
 
 
