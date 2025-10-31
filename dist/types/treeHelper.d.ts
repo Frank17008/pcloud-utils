@@ -72,7 +72,7 @@ export declare function getTreeLeaf(treeData: TreeNode[] | TreeNode, leafList?: 
  */
 export declare const getParentIdsByTreeId: (treeData: TreeNode[], nodeId: string | number, config?: {
     [key: string]: string;
-} | undefined) => string[] | number[];
+}) => string[] | number[];
 /**
  * 将树形结构数据转换为平级结构数组
  * @param treeData 树形结构数据

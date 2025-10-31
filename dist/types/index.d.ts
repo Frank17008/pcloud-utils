@@ -9,6 +9,7 @@ import IndexDB from "./indexDB";
 import * as coordTransform from "./coordTransform";
 import * as http from "./http";
 import * as strHelper from "./strHelper";
+import eventBus from "./eventBus";
 /**
  * 生成uuid
  * @returns 返回一个16位的字符串
@@ -62,6 +63,7 @@ declare function groupByField<T>(sortData: T[], fieldName: string): {
     label: string;
     data: T[];
 }[];
-export { formTest, file, cache, treeHelper, numHelper, fscHelper, uuid, evil, groupByField, SocketEmitter, IndexDB, coordTransform, http, strHelper, };
+export { formTest, file, cache, treeHelper, numHelper, fscHelper, uuid, evil, groupByField, SocketEmitter, IndexDB, coordTransform, http, strHelper, eventBus };
 export type { TreeNode } from "./treeHelper";
 export type { CacheType } from "./cache";
+export type { EventBus, EventHandler } from "./eventBus";
