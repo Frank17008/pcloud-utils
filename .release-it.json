@@ -1,7 +1,7 @@
 {
   "hooks": {},
   "github": {
-    "release": true
+    "release": false
   },
   "gitlab": {
     "release": false
